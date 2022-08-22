@@ -23,11 +23,11 @@ export class Stored__Params {
     this._event = event;
   }
 
-  get _id(): BigInt {
+  get USERNAME(): BigInt {
     return this._event.parameters[0].value.toBigInt();
   }
 
-  get _password(): BigInt {
+  get PASSWORD(): BigInt {
     return this._event.parameters[1].value.toBigInt();
   }
 }

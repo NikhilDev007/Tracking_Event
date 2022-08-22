@@ -11,7 +11,7 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class ExampleEntity extends Entity {
+export class UserData extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -19,18 +19,18 @@ export class ExampleEntity extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save ExampleEntity entity without an ID");
+    assert(id != null, "Cannot save UserData entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type ExampleEntity must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type UserData must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("ExampleEntity", id.toString(), this);
+      store.set("UserData", id.toString(), this);
     }
   }
 
-  static load(id: string): ExampleEntity | null {
-    return changetype<ExampleEntity | null>(store.get("ExampleEntity", id));
+  static load(id: string): UserData | null {
+    return changetype<UserData | null>(store.get("UserData", id));
   }
 
   get id(): string {
@@ -51,21 +51,21 @@ export class ExampleEntity extends Entity {
     this.set("count", Value.fromBigInt(value));
   }
 
-  get _id(): BigInt {
-    let value = this.get("_id");
+  get USERNAME(): BigInt {
+    let value = this.get("USERNAME");
     return value!.toBigInt();
   }
 
-  set _id(value: BigInt) {
-    this.set("_id", Value.fromBigInt(value));
+  set USERNAME(value: BigInt) {
+    this.set("USERNAME", Value.fromBigInt(value));
   }
 
-  get _password(): BigInt {
-    let value = this.get("_password");
+  get PASSWORD(): BigInt {
+    let value = this.get("PASSWORD");
     return value!.toBigInt();
   }
 
-  set _password(value: BigInt) {
-    this.set("_password", Value.fromBigInt(value));
+  set PASSWORD(value: BigInt) {
+    this.set("PASSWORD", Value.fromBigInt(value));
   }
 }

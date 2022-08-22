@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: eventTracking
@@ -17,8 +17,8 @@ dataSources:
         - UserData
       abis:
         - name: eventTracking
-          file: ./abis/eventTracking.json
+          file: eventTracking\abis\eventTracking.json
       eventHandlers:
         - event: Stored(uint256,uint256)
           handler: handleStored
-      file: ./src/mapping.ts
+      file: eventTracking\eventTracking.wasm

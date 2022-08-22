@@ -1,13 +1,13 @@
 {
-  "name": "Tracking_Event",
+  "name": "0x4F53727E58F01A7CEf36AbE3Fe9fD7022B7B0837",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ Tracking_Event",
-    "create-local": "graph create --node http://localhost:8020/ Tracking_Event",
-    "remove-local": "graph remove --node http://localhost:8020/ Tracking_Event",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 Tracking_Event",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ 0x4F53727E58F01A7CEf36AbE3Fe9fD7022B7B0837",
+    "create-local": "graph create --node http://localhost:8020/ 0x4F53727E58F01A7CEf36AbE3Fe9fD7022B7B0837",
+    "remove-local": "graph remove --node http://localhost:8020/ 0x4F53727E58F01A7CEf36AbE3Fe9fD7022B7B0837",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 0x4F53727E58F01A7CEf36AbE3Fe9fD7022B7B0837",
     "test": "graph test"
   },
   "dependencies": {
