@@ -1,0 +1,23 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: eventTracking
+    network: rinkeby
+    source:
+      address: "0x4F53727E58F01A7CEf36AbE3Fe9fD7022B7B0837"
+      abi: eventTracking
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Stored
+      abis:
+        - name: eventTracking
+          file: ./abis/eventTracking.json
+      eventHandlers:
+        - event: Stored(uint256,uint256)
+          handler: handleStored
+      file: ./src/event-tracking.ts
