@@ -1,29 +1,24 @@
 import { 
-    Stored, eventTracking
+    Stored
 } from "../generated/eventTracking/eventTracking"
 
 import { UserData } from "../generated/schema"
 
 
 export function handleStored(event: Stored): void {
-    let stored = UserData.load(event.transaction.from.toHex())
+    // load the data from all events
+    let stored = new UserData(
+      event.transaction.hash
+        .toHexString()
+        .concat("-").
+        concat(event.logIndex.toString())
+    );
 
-    // Entities only exist after they have been saved to the store;
-    // `null` checks allow to create entities on demand
-    if (!stored) {
-      stored = new UserData(event.transaction.from.toHexString())
-      //stored.timestamp = event.block.timestamp;
-
-      //   let storedContract = eventTracking.bind(event.address);
-      //   stored.PASSWORD = storedContract.data(event.params.USERNAME);
-
-    }
-
+    // stored data in specific variables
     stored.USERNAME = event.params.USERNAME
     stored.PASSWORD = event.params.PASSWORD
 
+    // store whole data obtained from events.
     stored.save();
-
-
 }
 
