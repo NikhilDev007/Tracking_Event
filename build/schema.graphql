@@ -1,5 +1,0 @@
-type UserData @entity {
-  id: ID!
-  USERNAME: BigInt! # uint256
-  PASSWORD: BigInt! # uint256
-}
